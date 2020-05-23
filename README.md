@@ -28,7 +28,7 @@ The code is provided under the GPLv3 license. If you want to use the code under 
 
 ## Installation
 
-```python
+```shell
 pip install -e git+https://github.com/pedrodbs/InterestingnessXRL.git
 ```
 
@@ -45,7 +45,7 @@ pip install -e git+https://github.com/pedrodbs/InterestingnessXRL.git
 - [jsonpickle](https://github.com/jsonpickle/jsonpickle)
 
 To use the [Frogger](https://github.com/pedrodbs/frogger) environment, install with:
-```python
+```shell
 pip install -e git+https://github.com/pedrodbs/frogger.git
 ```
 
