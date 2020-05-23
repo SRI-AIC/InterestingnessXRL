@@ -24,7 +24,7 @@ Please cite this repository if you use the code in your research:
 
 ## **License notice** 
 
-The code is provided under the GPLv3 license. If you want to use the code under a different set of licensing terms, please contact [SRI International](https://www.sri.com/)'s licensing department at [licensee-ops@sri.com](mailto:licensee-ops@sri.com).
+The code is provided under the GPLv3 license. To use the code under a different set of licensing terms, please contact [SRI International](https://www.sri.com/)'s licensing department at [licensee-ops@sri.com](mailto:licensee-ops@sri.com).
 
 ## Installation
 
