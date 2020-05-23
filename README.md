@@ -2,7 +2,7 @@
 
 ![framework](framework.png)
 
-Interestingness XRL is a Python 3 library for eXplainable Reinforcement Learning (XRL) based on the concept of interestingness elements – these are elements of an agent’s history of interaction with its environment that might be relevant for understanding the agent’s aptitude, both its capabilities and limitations. The diagram above explains the workflow behind the framework.More details can be found in the accompanying [paper](https://arxiv.org/abs/1912.09007).
+Interestingness XRL is a Python 3 library for eXplainable Reinforcement Learning (XRL) based on the concept of interestingness elements – these are elements of an agent’s history of interaction with its environment that might be relevant for understanding the agent’s aptitude, both its capabilities and limitations. The diagram above explains the workflow behind the framework. More details can be found in the accompanying [paper](https://arxiv.org/abs/1912.09007).
 
 Each element defines a specific criterion to evaluate the agent’s interaction. The library can be plugged-in to any standard RL task with minimal effort, and provides different reporting methods, namely video highlights and sequences, behavior heatmaps and elements’ tracker. 
 
