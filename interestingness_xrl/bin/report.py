@@ -31,8 +31,6 @@ class ExplainerMonitor(object):
 def run_episodes(name, new_episode_func, update_func):
     global behavior_tracker, helper
 
-    # todo
-    # for e in range(10):
     for e in range(behavior_tracker.num_episodes):
 
         # gets state and action sequence
@@ -69,7 +67,7 @@ def run_episodes(name, new_episode_func, update_func):
             if not done and s != s_seq[t + 1]:
                 raise ValueError('Environment state {} does not match tracked state {}'.format(s, s_seq[t + 1]))
 
-            if explanation_t == ReportType.Heatmaps:
+            if name == 'analysis' and explanation_t == ReportType.Heatmaps:
                 helper.update_stats(e, t, old_obs, obs, old_s, a, r, s)
             update_func(t, old_obs, old_s, a, r, s)
 
@@ -88,7 +86,7 @@ if __name__ == '__main__':
     explanation_t = args.report
 
     # tries to load agent from results dir
-    agent_dir = sys.argv[3] if len(sys.argv) > 3 else get_agent_output_dir(DEFAULT_CONFIG, agent_t)
+    agent_dir = get_agent_output_dir(DEFAULT_CONFIG, agent_t)
     if not exists(agent_dir):
         raise ValueError('Could not load agent from: {}'.format(agent_dir))
 
@@ -101,7 +99,7 @@ if __name__ == '__main__':
     helper = create_helper(config)
 
     # tries to load full analysis
-    analyses_dir = sys.argv[4] if len(sys.argv) > 4 else get_analysis_output_dir(agent_dir)
+    analyses_dir = get_analysis_output_dir(agent_dir)
     file_name = join(analyses_dir, 'full-analysis.json')
     if exists(file_name):
         full_analysis = FullAnalysis.load_json(file_name)
@@ -124,7 +122,7 @@ if __name__ == '__main__':
     recorded_episodes = read_table_csv(rec_episodes_file, dtype=int)
 
     # creates output dir if needed
-    output_dir = sys.argv[5] if len(sys.argv) > 5 else get_explanation_output_dir(agent_dir, explanation_t)
+    output_dir = get_explanation_output_dir(agent_dir, explanation_t)
     if not exists(output_dir):
         makedirs(output_dir)
     elif CLEAN_DIR:
@@ -135,10 +133,11 @@ if __name__ == '__main__':
     config.save_json(join(output_dir, 'config.json'))
 
     # register environment in Gym according to env config
-    helper.register_gym_environment(False, 0, False)
+    env_id = '{}-report-v0'.format(config.gym_env_id)
+    helper.register_gym_environment(env_id, False, 0, False)
 
     # create environment
-    env = gym.make(config.gym_env_id)
+    env = gym.make(env_id)
 
     # initializes seed
     env.seed(config.seed)

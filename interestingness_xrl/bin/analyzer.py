@@ -11,15 +11,15 @@ from interestingness_xrl.scenarios import AgentType, get_agent_output_dir, DEFAU
 from interestingness_xrl.scenarios.configurations import EnvironmentConfiguration, AnalysisConfiguration
 from interestingness_xrl.explainability.analysis import AnalysisBase
 from interestingness_xrl.explainability.analysis.full_analysis import FullAnalysis
-from interestingness_xrl.explainability.analysis.transitions import TransitionAnalysis
+from interestingness_xrl.explainability.analysis.task.transitions import TransitionAnalysis
 from interestingness_xrl.explainability.analysis.task.rewards import RewardAnalysis
-from interestingness_xrl.explainability.analysis.state_frequency import StateFrequencyAnalysis
-from interestingness_xrl.explainability.analysis.action_frequency import StateActionFrequencyAnalysis
-from interestingness_xrl.explainability.analysis.values import ValueAnalysis
-from interestingness_xrl.explainability.analysis.recency import RecencyAnalysis
-from interestingness_xrl.explainability.analysis.transition_values import TransitionValuesAnalysis
-from interestingness_xrl.explainability.analysis.sequences import SequenceAnalysis
-from interestingness_xrl.explainability.analysis.contradictions import ContradictionAnalysis
+from interestingness_xrl.explainability.analysis.interaction.state_frequency import StateFrequencyAnalysis
+from interestingness_xrl.explainability.analysis.interaction.action_frequency import StateActionFrequencyAnalysis
+from interestingness_xrl.explainability.analysis.interaction.values import ValueAnalysis
+from interestingness_xrl.explainability.analysis.interaction.recency import RecencyAnalysis
+from interestingness_xrl.explainability.analysis.meta.transition_values import TransitionValuesAnalysis
+from interestingness_xrl.explainability.analysis.meta.sequences import SequenceAnalysis
+from interestingness_xrl.explainability.analysis.meta.contradictions import ContradictionAnalysis
 
 DEF_AGENT_TYPE = AgentType.Testing
 CLEAR_RESULTS = True

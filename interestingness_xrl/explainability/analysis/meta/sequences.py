@@ -5,10 +5,10 @@ import heapq
 import numpy as np
 from os.path import join
 from interestingness_xrl.explainability.analysis import AnalysisBase
-from interestingness_xrl.explainability.analysis.state_frequency import StateFrequencyAnalysis
-from interestingness_xrl.explainability.analysis.transitions import TransitionAnalysis
-from interestingness_xrl.explainability.analysis.transition_values import TransitionValuesAnalysis
-from interestingness_xrl.explainability.analysis.recency import RecencyAnalysis
+from interestingness_xrl.explainability.analysis.interaction.state_frequency import StateFrequencyAnalysis
+from interestingness_xrl.explainability.analysis.task.transitions import TransitionAnalysis
+from interestingness_xrl.explainability.analysis.meta.transition_values import TransitionValuesAnalysis
+from interestingness_xrl.explainability.analysis.interaction.recency import RecencyAnalysis
 from interestingness_xrl.scenarios.scenario_helper import ScenarioHelper
 from interestingness_xrl.learning.agents import QValueBasedAgent
 from interestingness_xrl.learning import get_features_from_index

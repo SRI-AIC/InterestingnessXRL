@@ -81,7 +81,7 @@ class RecencyAnalysis(AnalysisBase):
         self.earlier_states = \
             list(zip(visited_s[0][earlier_states_idxs].tolist(),
                      visited_t_s[earlier_states_idxs].tolist(),
-                     self.agent.c_s[visited_s][earlier_states_idxs]))
+                     self.agent.c_s[visited_s][earlier_states_idxs].tolist()))
 
         # calculates recency of visited state-acton pairs and gets outliers
         visited_t_sa = self.agent.t_sa[visited_sa]
@@ -90,7 +90,7 @@ class RecencyAnalysis(AnalysisBase):
             list(zip(visited_sa[0][earlier_sa_idxs].tolist(),
                      visited_sa[1][earlier_sa_idxs].tolist(),
                      visited_t_sa[earlier_sa_idxs].tolist(),
-                     self.agent.c_sa[visited_sa][earlier_sa_idxs]))
+                     self.agent.c_sa[visited_sa][earlier_sa_idxs].tolist()))
 
         # sorts lists
         self.earlier_states.sort(key=lambda e: e[1])

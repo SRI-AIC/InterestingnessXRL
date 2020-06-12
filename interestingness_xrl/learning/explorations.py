@@ -5,7 +5,7 @@ import numpy as np
 from abc import abstractmethod, ABC
 
 
-class ExplorationStrategy(object, ABC):
+class ExplorationStrategy(ABC):
     """
     Represents an exploration-exploitation action-selection strategy to be used by agents during learning.
     """
@@ -62,7 +62,7 @@ class ManualExploration(ExplorationStrategy, ABC):
         return self.action
 
 
-class GreedyExploration(ExplorationStrategy):
+class GreedyExploration(ExplorationStrategy, ABC):
     """
     Represents a greedy exploration strategy, i.e., one that selects an action among the ones with the highest Q-value.
     """
@@ -105,7 +105,7 @@ class RandomExploration(ExplorationStrategy):
         return self.rng.randint(0, self.agent.num_actions)
 
 
-class EpsilonGreedyExploration(ExplorationStrategy):
+class EpsilonGreedyExploration(ExplorationStrategy, ABC):
     """
     Represents a greedy exploration strategy using epsilon-greedy action-selection, i.e., selects an action at random
     with probability epsilon, and an action among the ones with the highest Q-value with probability 1 - epsilon.
@@ -190,7 +190,7 @@ class AdaptiveEpsilonGreedy(EpsilonGreedyExploration):
     """
     Represents a Value-Difference Based Exploration (VBDE) epsilon-greedy exploration strategy that adapts the
     exploration parameter epsilon according to the temporal-difference error observed from value-function backups.
-    see: https://doi.org/10.1007/978-3-642-16111-7_23
+    See: https://doi.org/10.1007/978-3-642-16111-7_23
     """
 
     def __init__(self, inverse_sensitivity=1., rng=None):
@@ -206,6 +206,9 @@ class AdaptiveEpsilonGreedy(EpsilonGreedyExploration):
     def explore(self, state):
         self.eps = 1 + np.exp(-np.mean(self.agent.dq[state]) / self.inverse_sensitivity)
         return super().explore(state)
+
+    def update(self, num_episode):
+        pass
 
 
 class SoftMaxExploration(ExplorationStrategy):
@@ -254,6 +257,9 @@ class SoftMaxExploration(ExplorationStrategy):
         norm = totals[-1]
         throw = self.rng.random_sample() * norm
         return np.searchsorted(totals, throw)
+
+    def update(self, num_episode):
+        pass
 
 
 class ExpDecaySoftMax(SoftMaxExploration):

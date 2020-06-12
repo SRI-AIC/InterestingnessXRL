@@ -5,8 +5,8 @@ import numpy as np
 from os.path import join
 from interestingness_xrl.explainability import get_pairwise_jensen_shannon_divergence
 from interestingness_xrl.explainability.analysis import AnalysisBase
-from interestingness_xrl.explainability.analysis.transition_values import TransitionValuesAnalysis
-from interestingness_xrl.explainability.analysis.action_frequency import StateActionFrequencyAnalysis
+from interestingness_xrl.explainability.analysis.meta.transition_values import TransitionValuesAnalysis
+from interestingness_xrl.explainability.analysis.interaction.action_frequency import StateActionFrequencyAnalysis
 from interestingness_xrl.scenarios.scenario_helper import ScenarioHelper
 from interestingness_xrl.learning.agents import QValueBasedAgent
 from interestingness_xrl.learning import get_features_from_index
@@ -275,12 +275,6 @@ class ContradictionAnalysis(AnalysisBase):
 
         self.transition_value_analysis = transition_value_analysis
         self.state_action_freq_analysis = state_action_freq_analysis
-
-    def _after_loaded_json(self):
-        # corrects string indexes
-        self.state_rewards = {int(s): v for s, v in self.state_rewards.items()}
-        self.state_counts = {int(s): v for s, v in self.state_counts.items()}
-        self.state_values = {int(s): v for s, v in self.state_values.items()}
 
     def _save_visual_report(self, path):
 

@@ -86,14 +86,15 @@ if __name__ == '__main__':
         makedirs(output_dir)
 
     # register environment in Gym according to env_config
-    helper.register_gym_environment(True, FPS, SHOW_SCORE_BAR)
+    env_id = '{}-manual-v0'.format(config.gym_env_id)
+    helper.register_gym_environment(env_id, True, FPS, SHOW_SCORE_BAR)
 
     # saves / copies configs to file
     config.save_json(join(output_dir, 'config.json'))
     helper.save_state_features(join(output_dir, 'state_features.csv'))
 
     # create environment and monitor
-    env = gym.make(config.gym_env_id)
+    env = gym.make(env_id)
     env = Monitor(env, directory=output_dir, force=True, video_callable=lambda _: True)
     env.seed(config.seed)
 

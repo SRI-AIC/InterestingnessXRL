@@ -82,7 +82,7 @@ class HeatmapsExplainer(Explainer):
         for var_name in self.helper.stats_collector.all_variables():
             hp_name = self._get_heatmap_name(STATS_SUB_DIR, var_name)
             prev_stat = self.heat_maps[hp_name][col][row]
-            cur_stat = self.helper.stats_collector.get_most_recent_sample(hp_name, self.e)
+            cur_stat = self.helper.stats_collector.get_most_recent_sample(var_name, self.e)
             self.heat_maps[hp_name][col][row] = self._get_mean(cur_stat, prev_stat, prev_count)
 
         self.heat_maps[AGENT_LOCATION_HEATMAP][col][row] += 1

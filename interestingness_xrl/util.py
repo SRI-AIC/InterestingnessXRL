@@ -61,7 +61,7 @@ def record_video(buffer, file_path, fps):
     """
 
     # creates video encoder and adds each frame in the buffer
-    video_recorder = ImageEncoder(file_path, buffer[0].shape, fps)
+    video_recorder = ImageEncoder(file_path, buffer[0].shape, fps, fps)
     for frame in buffer:
         video_recorder.capture_frame(frame)
     video_recorder.close()

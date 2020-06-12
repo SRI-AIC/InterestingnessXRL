@@ -61,10 +61,11 @@ if __name__ == '__main__':
     behavior_tracker.load(agent_dir)
 
     # register environment in Gym according to env_config
-    helper.register_gym_environment(True, FPS, SHOW_SCORE_BAR)
+    env_id = '{}-replay-v0'.format(config.gym_env_id)
+    helper.register_gym_environment(env_id, True, FPS, SHOW_SCORE_BAR)
 
     # creates environment
-    env = gym.make(config.gym_env_id)
+    env = gym.make(env_id)
 
     # initializes seed according to config
     env.seed(config.seed)

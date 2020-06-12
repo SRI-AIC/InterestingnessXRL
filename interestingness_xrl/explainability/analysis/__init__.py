@@ -154,7 +154,6 @@ class AnalysisBase(ABC):
             analysis._after_loaded_json()
             return analysis
 
-    @abstractmethod
     def _after_loaded_json(self):
         """
         This function is called after the object has been loaded through json. Allows corrections to field objects.

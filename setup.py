@@ -11,6 +11,23 @@ setup(name='InterestingnessXRL',
       packages=find_packages(),
       scripts=[
       ],
-      install_requires=['numpy', 'gym', 'pillow', 'jsonpickle', 'pygame', 'pandas', 'matplotlib', 'scipy', 'pyfpgrowth'],
+      install_requires=[
+          'numpy',
+          'pygame',
+          'ple @ git+https://github.com/ntasfi/PyGame-Learning-Environment',
+          'gym',
+          'pillow',
+          'jsonpickle',
+          'pandas',
+          'matplotlib',
+          'scipy',
+          'pyfpgrowth',
+          "palettable"
+      ],
+      extras_require={
+          'frogger': [
+              'frogger @ git+https://github.com/pedrodbs/frogger',
+          ],
+      },
       zip_safe=True
       )

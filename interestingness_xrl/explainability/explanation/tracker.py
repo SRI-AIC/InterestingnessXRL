@@ -4,9 +4,9 @@ import numpy as np
 import pygame
 from os import makedirs
 from os.path import join, exists
-from learning import get_discretized_index
-from explainability.explanations import Explainer, overlay_frame
 from gym.wrappers.monitoring.video_recorder import ImageEncoder
+from interestingness_xrl.explainability.explanation import Explainer, overlay_frame
+from interestingness_xrl.learning import get_discretized_index
 
 MIN_ALPHA = 150
 HIGHLIGHT_COLOR = (215, 0, 0)
@@ -62,7 +62,7 @@ class AspectsTrackerExplainer(Explainer):
             # creates video recorders and maps for each interestingness aspect
             for aspect_name in aspect_names:
                 file_path = join(dir_path, '{}-e-{}.mp4'.format(aspect_name, e))
-                self.video_recorders[aspect_name] = ImageEncoder(file_path, video_frame_size, self.fps)
+                self.video_recorders[aspect_name] = ImageEncoder(file_path, video_frame_size, self.fps, self.fps)
                 self.maps[aspect_name] = np.zeros(self.config.env_size, np.int)
 
         self.cur_time_step_frames = []

@@ -34,19 +34,21 @@ pip install -e git+https://github.com/pedrodbs/InterestingnessXRL.git
 
 ## Dependencies
 
-- [OpenAI Gym](https://github.com/openai/gym)
-- [FP-Growth](https://github.com/evandempsey/fp-growth)
 - [numpy](https://numpy.org/)
+- [OpenAI Gym](https://github.com/openai/gym)
+- [pygame](https://www.pygame.org/)
+- [PyGame-Learning-Environment](https://github.com/ntasfi/PyGame-Learning-Environment)
+- [FP-Growth](https://github.com/evandempsey/fp-growth)
 - [scipy](https://www.scipy.org/)
 - [Matplotlib](https://matplotlib.org/)
 - [pandas](https://pandas.pydata.org/)
 - [pillow](https://python-pillow.org/)
-- [pygame](https://www.pygame.org/)
 - [jsonpickle](https://github.com/jsonpickle/jsonpickle)
+- [palettable](https://jiffyclub.github.io/palettable)
 
 To use the [Frogger](https://github.com/pedrodbs/frogger) environment, install with:
 ```shell
-pip install -e git+https://github.com/pedrodbs/frogger.git
+pip install -e git+https://github.com/pedrodbs/frogger.git#egg=frogger
 ```
 
 ## Usage
@@ -54,22 +56,22 @@ The following examples concern the default Frogger environment. All configuratio
 
 Train an agent for 100 trials via Q-learning using all available CPU cores:
 ```bash
-python -m interestingness_xrl.bin.multi_agent_runner.py -a 0 -t 100 -p
+python -m interestingness_xrl.bin.multi_agent_runner -a 0 -t 100
 ```
 
-Test an agent for 1 trial (default = 2,000 episodes):
+Test an agent for 1 trial (default = 2,000 episodes) and record some videos:
 ```bash
-python -m interestingness_xrl.bin.agent_runner.py -a 1 -t 0 -p -v
+python -m interestingness_xrl.bin.agent_runner -a 1 -t 0 -v -rv
 ```
 
 Run introspection analysis over the train+test data to extract interestingness elements:
 ```bash
-python -m interestingness_xrl.bin.analyzer.py -a 1
+python -m interestingness_xrl.bin.analyzer -a 1
 ```
 
 Extract visualizations/reports from the extracted elements:
 ```bash
-python -m interestingness_xrl.bin.report.py -a 1 -r 1
+python -m interestingness_xrl.bin.report -a 1 -r 0
 ```
 
 Options for the `-r` parameter above (report type) include:
