@@ -12,13 +12,16 @@ This framework provides implementations for standard RL algorithms like Q-Learni
 
 Please cite the paper if you use the code in your research:
 ```
-@misc{sequeira2019interestingness,
-    title={Interestingness Elements for Explainable Reinforcement Learning: Understanding Agents' Capabilities and Limitations},
-    author={Pedro Sequeira and Melinda Gervasio},
-    year={2019},
-    eprint={1912.09007},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
+@article{Sequeira2020,
+	Author = {Pedro Sequeira and Melinda Gervasio},
+	Doi = {https://doi.org/10.1016/j.artint.2020.103367},
+	Issn = {0004-3702},
+	Journal = {Artificial Intelligence},
+	Keywords = {Explainable AI, Reinforcement learning, Interestingness elements, Autonomy, Video highlights, Visual explanations},
+	Pages = {103367},
+	Title = {Interestingness elements for explainable reinforcement learning: Understanding agents' capabilities and limitations},
+	Volume = {288},
+	Year = {2020}
 }
 ```
 
