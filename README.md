@@ -32,7 +32,7 @@ The code is provided under the GPLv3 license. To use the code under a different 
 ## Installation
 
 ```shell
-pip install -e git+https://github.com/pedrodbs/InterestingnessXRL.git
+pip install -e git+https://github.com/SRI-AIC/InterestingnessXRL.git
 ```
 
 ## Dependencies
